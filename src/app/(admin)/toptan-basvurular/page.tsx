@@ -68,7 +68,8 @@ export default function AdminWholesalePage() {
   return (
     <div>
       <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/60">
-        <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto">
+        <table className="min-w-[700px] w-full text-left text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/80">
               <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Firma</th>
@@ -126,6 +127,7 @@ export default function AdminWholesalePage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Detail Modal */}
@@ -179,7 +181,7 @@ export default function AdminWholesalePage() {
                 <User className="h-3.5 w-3.5" />
                 Başvuran Kullanıcı
               </h4>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <span className="text-[11px] font-medium text-slate-400">Ad Soyad</span>
                   <p className="text-sm font-medium text-slate-700">
@@ -201,7 +203,7 @@ export default function AdminWholesalePage() {
                 <Building2 className="h-3.5 w-3.5" />
                 Firma Bilgileri
               </h4>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <span className="text-[11px] font-medium text-slate-400">Firma Adı</span>
                   <p className="text-sm font-medium text-slate-700">{selected.companyName}</p>
@@ -227,7 +229,7 @@ export default function AdminWholesalePage() {
                 <MapPin className="h-3.5 w-3.5" />
                 Adres Bilgileri
               </h4>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <span className="text-[11px] font-medium text-slate-400">İl</span>
                   <p className="text-sm font-medium text-slate-700">{selected.city || '—'}</p>

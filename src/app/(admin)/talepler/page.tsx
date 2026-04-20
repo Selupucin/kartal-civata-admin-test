@@ -85,8 +85,8 @@ export default function AdminContactRequestsPage() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
@@ -116,7 +116,8 @@ export default function AdminContactRequestsPage() {
       </div>
 
       <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/60">
-        <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto">
+        <table className="min-w-[650px] w-full text-left text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/80">
               <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Gönderen</th>
@@ -177,6 +178,7 @@ export default function AdminContactRequestsPage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Request Detail Modal */}

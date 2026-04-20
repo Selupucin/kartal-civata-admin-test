@@ -89,7 +89,7 @@ export default function AdminOrdersPage() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center gap-3">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
@@ -113,7 +113,8 @@ export default function AdminOrdersPage() {
       </div>
 
       <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/60">
-        <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto">
+        <table className="min-w-[700px] w-full text-left text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/80">
               <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Sipariş No</th>
@@ -172,6 +173,7 @@ export default function AdminOrdersPage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Order Detail Modal */}
@@ -232,7 +234,7 @@ export default function AdminOrdersPage() {
               )}
               {/* Status Buttons */}
               {!shippingForm && (
-                <div className="flex w-full items-center gap-2">
+                <div className="flex w-full flex-wrap items-center gap-2">
                   <span className="mr-auto text-sm font-medium text-slate-500">Durum Güncelle:</span>
                   {(ORDER_STATUS_FLOW[selectedOrder.status as OrderStatus] || []).map((nextStatus) => {
                     const currentIdx = STATUS_ORDER.indexOf(selectedOrder.status);

@@ -115,7 +115,7 @@ export default function AdminCategoriesPage() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -144,7 +144,8 @@ export default function AdminCategoriesPage() {
       </div>
 
       <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/60">
-        <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto">
+        <table className="min-w-[650px] w-full text-left text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/80">
               <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Kategori Adı</th>
@@ -203,6 +204,7 @@ export default function AdminCategoriesPage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       <Modal

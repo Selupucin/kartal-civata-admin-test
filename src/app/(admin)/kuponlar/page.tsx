@@ -150,7 +150,7 @@ export default function AdminCouponsPage() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-slate-800">Kupon Yönetimi</h2>
           <p className="mt-1 text-sm text-slate-400">{coupons.length} kupon</p>
@@ -167,7 +167,8 @@ export default function AdminCouponsPage() {
 
       {/* Coupons Table */}
       <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/60">
-        <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto">
+        <table className="min-w-[700px] w-full text-left text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/80">
               <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Kupon Kodu</th>
@@ -241,6 +242,7 @@ export default function AdminCouponsPage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Create/Edit Modal */}
@@ -260,7 +262,7 @@ export default function AdminCouponsPage() {
           {error && (
             <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</div>
           )}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="mb-1 block text-sm font-medium">Kupon Kodu <span className="text-red-500">*</span></label>
               <input
@@ -284,7 +286,7 @@ export default function AdminCouponsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="mb-1 block text-sm font-medium">İndirim Tipi <span className="text-red-500">*</span></label>
               <select
@@ -312,7 +314,7 @@ export default function AdminCouponsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="mb-1 block text-sm font-medium">Min. Sipariş Tutarı (₺)</label>
               <input
@@ -338,7 +340,7 @@ export default function AdminCouponsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="mb-1 block text-sm font-medium">Toplam Kullanım Limiti</label>
               <input
@@ -362,7 +364,7 @@ export default function AdminCouponsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="mb-1 block text-sm font-medium">Başlangıç Tarihi</label>
               <input

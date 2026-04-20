@@ -154,7 +154,7 @@ export default function LogsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
             <ScrollText className="h-5 w-5 text-violet-500" />

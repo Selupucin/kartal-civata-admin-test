@@ -54,9 +54,9 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md', f
             </button>
           </div>
         )}
-        <div className="px-6 py-4">{children}</div>
+        <div className="px-4 sm:px-6 py-4">{children}</div>
         {footer && (
-          <div className="sticky bottom-0 z-10 flex items-center justify-end gap-2 border-t bg-white px-6 py-4 rounded-b-xl">
+          <div className="sticky bottom-0 z-10 flex flex-wrap items-center justify-end gap-2 border-t bg-white px-4 sm:px-6 py-4 rounded-b-xl">
             {footer}
           </div>
         )}

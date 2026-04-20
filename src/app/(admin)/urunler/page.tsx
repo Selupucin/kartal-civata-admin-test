@@ -176,7 +176,7 @@ export default function AdminProductsPage() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -225,7 +225,8 @@ export default function AdminProductsPage() {
 
       {/* Product Table */}
       <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/60">
-        <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto">
+        <table className="min-w-[700px] w-full text-left text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/80">
               <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Ürün Adı</th>
@@ -287,6 +288,7 @@ export default function AdminProductsPage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Create/Edit Modal */}
@@ -311,7 +313,7 @@ export default function AdminProductsPage() {
               <label className="mb-1 block text-sm font-medium">Ürün Adı <span className="text-red-500">*</span></label>
               <input type="text" value={form.name} onChange={(e) => updateField('name', e.target.value)} placeholder="Ör: M8x40 DIN 933 Cıvata" className="w-full rounded-lg border px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="mb-1 block text-sm font-medium">SKU <span className="text-red-500">*</span></label>
                 <input type="text" value={form.sku} onChange={(e) => updateField('sku', e.target.value.toUpperCase())} placeholder="Ör: CIV-M8X40" className="w-full rounded-lg border px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
@@ -341,7 +343,7 @@ export default function AdminProductsPage() {
           </div>
           <div className="space-y-3">
             <h3 className="text-sm font-semibold text-gray-700">Fiyatlandırma</h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div>
                 <label className="mb-1 block text-sm font-medium">Perakende Fiyat (₺) <span className="text-red-500">*</span></label>
                 <input type="number" step="0.01" min="0" value={form.retailPrice} onChange={(e) => updateField('retailPrice', e.target.value)} className="w-full rounded-lg border px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
@@ -356,7 +358,7 @@ export default function AdminProductsPage() {
               </div>
             </div>
             {form.salePrice && (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1 block text-sm font-medium">İndirim Başlangıç</label>
                   <input type="datetime-local" value={form.saleStartDate} onChange={(e) => updateField('saleStartDate', e.target.value)} className="w-full rounded-lg border px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />

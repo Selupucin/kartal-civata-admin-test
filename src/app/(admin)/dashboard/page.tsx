@@ -120,7 +120,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Alerts - Clickable */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {alertCards.map(({ label, value, icon: Icon, color, bg, border, href }) => (
           <button
             key={label}

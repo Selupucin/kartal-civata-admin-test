@@ -130,7 +130,7 @@ export default function AdminUsersPage() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center gap-3">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
@@ -153,7 +153,8 @@ export default function AdminUsersPage() {
       </div>
 
       <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/60">
-        <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto">
+        <table className="min-w-[650px] w-full text-left text-sm">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/80">
               <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Ad Soyad</th>
@@ -215,6 +216,7 @@ export default function AdminUsersPage() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* User Detail/Edit Modal */}
@@ -356,7 +358,7 @@ export default function AdminUsersPage() {
                       className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <div>
                       <label className="mb-1 block text-xs font-medium text-slate-500">Vergi Numarası <span className="text-red-500">*</span></label>
                       <input
