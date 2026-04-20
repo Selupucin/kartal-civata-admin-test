@@ -1,11 +1,11 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
+import { successResponse, errorResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
-import { verifyAccessToken } from '@shared/lib/auth/jwt';
+import { verifyAccessToken } from '@/lib/auth/jwt';
 import { APP_CONFIG } from '@/constants/config';
-import dbConnect from '@shared/lib/db/mongoose';
-import User from '@shared/models/User';
+import dbConnect from '@/lib/db/mongoose';
+import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 
 export const GET = apiHandler(

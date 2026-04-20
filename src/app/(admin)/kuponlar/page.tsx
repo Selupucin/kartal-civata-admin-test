@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button, Modal, Badge, Spinner } from '@shared/components/ui';
-import { formatDate } from '@shared/lib/utils/format';
+import { Button, Modal, Badge, Spinner } from '@/components/ui';
+import { formatDate } from '@/lib/utils/format';
 import { Ticket, Plus, Pencil, Trash2, Copy } from 'lucide-react';
 import { toast } from 'sonner';
 

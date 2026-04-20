@@ -1,9 +1,9 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
+import { successResponse, errorResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
-import dbConnect from '@shared/lib/db/mongoose';
-import SiteSettings from '@shared/models/SiteSettings';
+import dbConnect from '@/lib/db/mongoose';
+import SiteSettings from '@/models/SiteSettings';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 

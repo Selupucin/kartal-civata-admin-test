@@ -1,10 +1,10 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
-import { verifyAccessToken } from '@shared/lib/auth/jwt';
-import { verifyPassword } from '@shared/lib/auth/passwords';
-import dbConnect from '@shared/lib/db/mongoose';
-import User from '@shared/models/User';
+import { successResponse, errorResponse } from '@/lib/api/response';
+import { verifyAccessToken } from '@/lib/auth/jwt';
+import { verifyPassword } from '@/lib/auth/passwords';
+import dbConnect from '@/lib/db/mongoose';
+import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 
 export const PUT = apiHandler(async (req: NextRequest) => {

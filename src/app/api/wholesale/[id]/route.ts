@@ -1,11 +1,11 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse } from '@shared/lib/api/response';
+import { successResponse } from '@/lib/api/response';
 import { withAdmin, AuthenticatedRequest } from '@/lib/api/middleware';
 import { NotFoundError } from '@/lib/errors';
-import dbConnect from '@shared/lib/db/mongoose';
-import WholesaleApplication from '@shared/models/WholesaleApplication';
-import User from '@shared/models/User';
+import dbConnect from '@/lib/db/mongoose';
+import WholesaleApplication from '@/models/WholesaleApplication';
+import User from '@/models/User';
 import { logSystemError } from '@/lib/logger/systemLog';
 
 export const PUT = apiHandler(

@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button, Spinner } from '@shared/components/ui';
+import { Button, Spinner } from '@/components/ui';
 import { Image as ImageIcon, Upload, Trash2, Globe } from 'lucide-react';
 import { toast } from 'sonner';
 

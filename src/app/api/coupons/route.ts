@@ -1,9 +1,9 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
+import { successResponse, errorResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
-import dbConnect from '@shared/lib/db/mongoose';
-import Coupon from '@shared/models/Coupon';
+import dbConnect from '@/lib/db/mongoose';
+import Coupon from '@/models/Coupon';
 
 export const GET = apiHandler(
   withAdmin(async (_req: NextRequest) => {

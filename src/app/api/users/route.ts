@@ -1,9 +1,9 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse } from '@shared/lib/api/response';
+import { successResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
-import dbConnect from '@shared/lib/db/mongoose';
-import User from '@shared/models/User';
+import dbConnect from '@/lib/db/mongoose';
+import User from '@/models/User';
 
 export const GET = apiHandler(
   withAdmin(async (req: NextRequest) => {

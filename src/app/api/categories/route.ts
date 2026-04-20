@@ -1,11 +1,11 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, createdResponse } from '@shared/lib/api/response';
+import { successResponse, createdResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
-import { slugify } from '@shared/lib/utils/slug';
+import { slugify } from '@/lib/utils/slug';
 import { ValidationError } from '@/lib/errors';
-import dbConnect from '@shared/lib/db/mongoose';
-import Category from '@shared/models/Category';
+import dbConnect from '@/lib/db/mongoose';
+import Category from '@/models/Category';
 
 export const GET = apiHandler(
   withAdmin(async (_req: NextRequest) => {

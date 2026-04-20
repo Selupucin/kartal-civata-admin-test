@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { Button } from '@shared/components/ui';
+import { Button } from '@/components/ui';
 import { Bell, Save } from 'lucide-react';
 import { toast } from 'sonner';
 

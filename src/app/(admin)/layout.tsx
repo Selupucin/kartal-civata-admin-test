@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/authStore';
-import { Spinner } from '@shared/components/ui';
+import { Spinner } from '@/components/ui';
 import ScreenLock from '@/components/ScreenLock';
 import SearchModal from '@/components/SearchModal';
 import NotificationBell from '@/components/NotificationBell';

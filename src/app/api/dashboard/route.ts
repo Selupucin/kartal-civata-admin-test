@@ -1,13 +1,13 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse } from '@shared/lib/api/response';
+import { successResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
-import dbConnect from '@shared/lib/db/mongoose';
-import User from '@shared/models/User';
-import Product from '@shared/models/Product';
-import Order from '@shared/models/Order';
-import WholesaleApplication from '@shared/models/WholesaleApplication';
-import SiteSettings from '@shared/models/SiteSettings';
+import dbConnect from '@/lib/db/mongoose';
+import User from '@/models/User';
+import Product from '@/models/Product';
+import Order from '@/models/Order';
+import WholesaleApplication from '@/models/WholesaleApplication';
+import SiteSettings from '@/models/SiteSettings';
 
 export const GET = apiHandler(
   withAdmin(async (_req: NextRequest) => {

@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { Spinner } from '@shared/components/ui';
-import { formatPrice, formatDate } from '@shared/lib/utils/format';
+import { Spinner } from '@/components/ui';
+import { formatPrice, formatDate } from '@/lib/utils/format';
 import { Users, Package, ShoppingCart, TrendingUp, AlertTriangle, Clock, ArrowUpRight, BarChart3, Calendar, Minimize2, Maximize2, TrendingUp as TrendingIcon } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts';
-import { ORDER_STATUS_MAP } from '@shared/constants/orderStatus';
+import { ORDER_STATUS_MAP } from '@/constants/orderStatus';
 
 const STATUS_COLORS: Record<string, string> = {
   pending: '#f59e0b',

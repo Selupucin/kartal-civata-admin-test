@@ -1,12 +1,12 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, createdResponse } from '@shared/lib/api/response';
+import { successResponse, createdResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
-import { slugify } from '@shared/lib/utils/slug';
-import dbConnect from '@shared/lib/db/mongoose';
-import Product from '@shared/models/Product';
-import Category from '@shared/models/Category';
-import SiteSettings from '@shared/models/SiteSettings';
+import { slugify } from '@/lib/utils/slug';
+import dbConnect from '@/lib/db/mongoose';
+import Product from '@/models/Product';
+import Category from '@/models/Category';
+import SiteSettings from '@/models/SiteSettings';
 import mongoose from 'mongoose';
 import { logSystemError } from '@/lib/logger/systemLog';
 

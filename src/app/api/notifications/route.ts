@@ -1,9 +1,9 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
-import { verifyAccessToken } from '@shared/lib/auth/jwt';
-import dbConnect from '@shared/lib/db/mongoose';
-import Notification from '@shared/models/Notification';
+import { successResponse, errorResponse } from '@/lib/api/response';
+import { verifyAccessToken } from '@/lib/auth/jwt';
+import dbConnect from '@/lib/db/mongoose';
+import Notification from '@/models/Notification';
 
 export const GET = apiHandler(async (req: NextRequest) => {
   const token = req.cookies.get('admin_access_token')?.value;

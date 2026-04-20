@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyAccessToken } from '@shared/lib/auth/jwt';
-import { errorResponse } from '@shared/lib/api/response';
-import { UserRole } from '@shared/types';
+import { verifyAccessToken } from '@/lib/auth/jwt';
+import { errorResponse } from '@/lib/api/response';
+import { UserRole } from '@/types';
 
 export interface AuthUser {
   id: string;

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button, Spinner } from '@shared/components/ui';
+import { Button, Spinner } from '@/components/ui';
 import { Phone, Mail, Clock, Globe, Save, Plus, Trash2, Store, MapPin, Pencil, X } from 'lucide-react';
 import { toast } from 'sonner';
 

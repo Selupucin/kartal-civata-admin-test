@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ZodError } from 'zod';
 import { AppError } from '@/lib/errors';
-import { errorResponse } from '@shared/lib/api/response';
+import { errorResponse } from '@/lib/api/response';
 import { logSystemError } from '@/lib/logger/systemLog';
 
 type RouteHandler = (

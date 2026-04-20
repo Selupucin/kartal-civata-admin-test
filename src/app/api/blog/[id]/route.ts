@@ -1,10 +1,10 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
+import { successResponse, errorResponse } from '@/lib/api/response';
 import { withAdmin, AuthenticatedRequest } from '@/lib/api/middleware';
-import { slugify } from '@shared/lib/utils/slug';
-import dbConnect from '@shared/lib/db/mongoose';
-import BlogPost from '@shared/models/BlogPost';
+import { slugify } from '@/lib/utils/slug';
+import dbConnect from '@/lib/db/mongoose';
+import BlogPost from '@/models/BlogPost';
 
 export const GET = apiHandler(
   withAdmin(async (_req: NextRequest, context: any) => {

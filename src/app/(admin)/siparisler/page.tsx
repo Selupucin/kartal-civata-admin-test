@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button, Modal, Badge, Spinner } from '@shared/components/ui';
-import { formatPrice, formatDate } from '@shared/lib/utils/format';
-import { ORDER_STATUS_MAP, ORDER_STATUS_FLOW } from '@shared/constants/orderStatus';
-import { OrderStatus } from '@shared/types';
+import { Button, Modal, Badge, Spinner } from '@/components/ui';
+import { formatPrice, formatDate } from '@/lib/utils/format';
+import { ORDER_STATUS_MAP, ORDER_STATUS_FLOW } from '@/constants/orderStatus';
+import { OrderStatus } from '@/types';
 import { ShoppingCart, Eye, Search, MapPin, Phone, Mail, Truck, Clock, FileText, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const statusBadgeVariant: Record<string, 'default' | 'success' | 'warning' | 'error' | 'info'> = {

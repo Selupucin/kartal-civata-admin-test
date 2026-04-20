@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuthStore } from '@/store/authStore';
-import { Button, Modal, Badge, Spinner } from '@shared/components/ui';
-import { formatDate } from '@shared/lib/utils/format';
+import { Button, Modal, Badge, Spinner } from '@/components/ui';
+import { formatDate } from '@/lib/utils/format';
 import { ShieldCheck, Plus, Trash2, Crown } from 'lucide-react';
 import { toast } from 'sonner';
 

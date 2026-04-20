@@ -1,7 +1,7 @@
-import dbConnect from '@shared/lib/db/mongoose';
-import SystemLog from '@shared/models/SystemLog';
-import Notification from '@shared/models/Notification';
-import User from '@shared/models/User';
+import dbConnect from '@/lib/db/mongoose';
+import SystemLog from '@/models/SystemLog';
+import Notification from '@/models/Notification';
+import User from '@/models/User';
 
 interface LogErrorOptions {
   level?: 'info' | 'warn' | 'error' | 'fatal';

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button, Input } from '@shared/components/ui';
+import { Button, Input } from '@/components/ui';
 import { Shield, Mail, Lock, ArrowRight } from 'lucide-react';
 
 export default function AdminLoginPage() {

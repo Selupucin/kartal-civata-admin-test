@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse } from '@shared/lib/api/response';
+import { successResponse } from '@/lib/api/response';
 
 export const POST = apiHandler(async (_req: NextRequest) => {
   const response = successResponse({ message: 'Çıkış yapıldı' });

@@ -1,10 +1,10 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
+import { successResponse, errorResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
 import { NotFoundError } from '@/lib/errors';
-import dbConnect from '@shared/lib/db/mongoose';
-import Category from '@shared/models/Category';
+import dbConnect from '@/lib/db/mongoose';
+import Category from '@/models/Category';
 import mongoose from 'mongoose';
 
 export const GET = apiHandler(

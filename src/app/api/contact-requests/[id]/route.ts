@@ -1,10 +1,10 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse } from '@shared/lib/api/response';
+import { successResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
 import { NotFoundError } from '@/lib/errors';
-import dbConnect from '@shared/lib/db/mongoose';
-import ContactRequest from '@shared/models/ContactRequest';
+import dbConnect from '@/lib/db/mongoose';
+import ContactRequest from '@/models/ContactRequest';
 
 export const PUT = apiHandler(
   withAdmin(async (req: NextRequest, context) => {

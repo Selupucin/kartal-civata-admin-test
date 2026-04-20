@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { Button, Modal, Badge, Spinner } from '@shared/components/ui';
-import { formatPrice, formatDate } from '@shared/lib/utils/format';
+import { Button, Modal, Badge, Spinner } from '@/components/ui';
+import { formatPrice, formatDate } from '@/lib/utils/format';
 import { Package, Plus, Pencil, Trash2, Search, AlertTriangle } from 'lucide-react';
 
 interface ProductForm {

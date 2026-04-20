@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Spinner } from '@shared/components/ui';
+import { Spinner } from '@/components/ui';
 
 export default function AdminSettingsPage() {
   const router = useRouter();

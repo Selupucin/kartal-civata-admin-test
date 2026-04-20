@@ -1,10 +1,10 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
+import { successResponse, errorResponse } from '@/lib/api/response';
 import { withAdmin, AuthenticatedRequest } from '@/lib/api/middleware';
 import { APP_CONFIG } from '@/constants/config';
-import dbConnect from '@shared/lib/db/mongoose';
-import SystemLog from '@shared/models/SystemLog';
+import dbConnect from '@/lib/db/mongoose';
+import SystemLog from '@/models/SystemLog';
 
 // GET /api/logs — list logs (super admin only)
 export const GET = apiHandler(

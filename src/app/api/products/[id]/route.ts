@@ -1,10 +1,10 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
+import { successResponse, errorResponse } from '@/lib/api/response';
 import { withAdmin } from '@/lib/api/middleware';
 import { NotFoundError } from '@/lib/errors';
-import dbConnect from '@shared/lib/db/mongoose';
-import Product from '@shared/models/Product';
+import dbConnect from '@/lib/db/mongoose';
+import Product from '@/models/Product';
 import mongoose from 'mongoose';
 import { logSystemError } from '@/lib/logger/systemLog';
 

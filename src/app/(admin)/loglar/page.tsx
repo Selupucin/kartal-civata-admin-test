@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuthStore } from '@/store/authStore';
 import { useRouter } from 'next/navigation';
-import { Button, Spinner } from '@shared/components/ui';
+import { Button, Spinner } from '@/components/ui';
 import {
   ScrollText,
   AlertTriangle,

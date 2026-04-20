@@ -1,12 +1,12 @@
 import { NextRequest } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse } from '@shared/lib/api/response';
+import { successResponse } from '@/lib/api/response';
 import { withAdmin, AuthenticatedRequest } from '@/lib/api/middleware';
 import { NotFoundError } from '@/lib/errors';
-import { ORDER_STATUS_FLOW } from '@shared/constants/orderStatus';
-import { OrderStatus } from '@shared/types';
-import dbConnect from '@shared/lib/db/mongoose';
-import Order from '@shared/models/Order';
+import { ORDER_STATUS_FLOW } from '@/constants/orderStatus';
+import { OrderStatus } from '@/types';
+import dbConnect from '@/lib/db/mongoose';
+import Order from '@/models/Order';
 import { logSystemError } from '@/lib/logger/systemLog';
 
 export const GET = apiHandler(

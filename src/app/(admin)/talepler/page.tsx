@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button, Badge, Modal, Spinner } from '@shared/components/ui';
-import { formatDate } from '@shared/lib/utils/format';
+import { Button, Badge, Modal, Spinner } from '@/components/ui';
+import { formatDate } from '@/lib/utils/format';
 import { MessageSquare, Search, Eye, Mail, Phone, Clock, User, Trash2 } from 'lucide-react';
 
 const statusLabels: Record<string, string> = {

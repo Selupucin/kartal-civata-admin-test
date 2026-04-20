@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiHandler } from '@/lib/api/handler';
-import { successResponse, errorResponse } from '@shared/lib/api/response';
-import { verifyPassword } from '@shared/lib/auth/passwords';
-import { signAccessToken, signRefreshToken } from '@shared/lib/auth/jwt';
-import { loginSchema } from '@shared/validations/auth';
+import { successResponse, errorResponse } from '@/lib/api/response';
+import { verifyPassword } from '@/lib/auth/passwords';
+import { signAccessToken, signRefreshToken } from '@/lib/auth/jwt';
+import { loginSchema } from '@/validations/auth';
 import { AuthenticationError } from '@/lib/errors';
 import { APP_CONFIG } from '@/constants/config';
-import dbConnect from '@shared/lib/db/mongoose';
-import User from '@shared/models/User';
+import dbConnect from '@/lib/db/mongoose';
+import User from '@/models/User';
 import { logSystemError } from '@/lib/logger/systemLog';
 
 export const POST = apiHandler(async (req: NextRequest) => {

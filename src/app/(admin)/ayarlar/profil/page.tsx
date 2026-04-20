@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuthStore } from '@/store/authStore';
-import { Button, Spinner } from '@shared/components/ui';
+import { Button, Spinner } from '@/components/ui';
 import { User, Save, Lock, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'sonner';
 
