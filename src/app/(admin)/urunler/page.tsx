@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Button, Modal, Badge, Spinner } from '@/components/ui';
 import { formatPrice, formatDate } from '@/lib/utils/format';
-import { Package, Plus, Pencil, Trash2, Search, AlertTriangle } from 'lucide-react';
+import { Package, Plus, Pencil, Trash2, Search, AlertTriangle, Upload, X, ImageIcon } from 'lucide-react';
 
 interface ProductForm {
   name: string;
@@ -60,6 +60,9 @@ export default function AdminProductsPage() {
   const [search, setSearch] = useState('');
   const lowStock = searchParams.get('lowStock') === 'true';
   const queryClient = useQueryClient();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [productImages, setProductImages] = useState<any[]>([]);
+  const [uploadingImages, setUploadingImages] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ['admin-products', search, lowStock],
@@ -139,6 +142,7 @@ export default function AdminProductsPage() {
     setEditingId(null);
     setForm(emptyForm);
     setError('');
+    setProductImages([]);
   };
 
   const openEdit = (product: any) => {
@@ -157,7 +161,57 @@ export default function AdminProductsPage() {
       categoryId: product.categoryId || '',
     });
     setError('');
+    setProductImages(product.images || []);
     setShowModal(true);
+  };
+
+  const handleImageUpload = async (files: FileList) => {
+    if (!editingId) {
+      setError('Resim eklemek için önce ürünü kaydedin');
+      return;
+    }
+    if (productImages.length + files.length > 3) {
+      setError('En fazla 3 resim eklenebilir');
+      return;
+    }
+    setUploadingImages(true);
+    setError('');
+    try {
+      const formData = new FormData();
+      Array.from(files).forEach(f => formData.append('images', f));
+      const res = await fetch(`/api/products/${editingId}/images`, { method: 'POST', body: formData });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error?.message || 'Resim yüklenemedi');
+      }
+      const data = await res.json();
+      setProductImages(data.data);
+      queryClient.invalidateQueries({ queryKey: ['admin-products'] });
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setUploadingImages(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
+
+  const handleImageDelete = async (index: number) => {
+    if (!editingId) return;
+    setUploadingImages(true);
+    try {
+      const res = await fetch(`/api/products/${editingId}/images?index=${index}`, { method: 'DELETE' });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error?.message || 'Resim silinemedi');
+      }
+      const data = await res.json();
+      setProductImages(data.data);
+      queryClient.invalidateQueries({ queryKey: ['admin-products'] });
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setUploadingImages(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -388,6 +442,68 @@ export default function AdminProductsPage() {
             <label className="mb-1 block text-sm font-medium">Stok Adedi</label>
             <input type="number" min="0" value={form.stock} onChange={(e) => updateField('stock', e.target.value)} className="w-full max-w-50 rounded-lg border px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
           </div>
+
+          {/* Image Upload Section */}
+          {editingId && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold text-gray-700">Ürün Görselleri (Maks. 3)</h3>
+              {productImages.length > 0 && (
+                <div className="grid grid-cols-3 gap-3">
+                  {productImages.map((img: any, idx: number) => (
+                    <div key={idx} className="group relative rounded-lg border border-slate-200 overflow-hidden aspect-square bg-slate-50">
+                      <img
+                        src={`http://localhost:3000${img.url}`}
+                        alt={img.alt || 'Ürün görseli'}
+                        className="h-full w-full object-cover"
+                        onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).style.display = 'none'; }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => handleImageDelete(idx)}
+                        disabled={uploadingImages}
+                        className="absolute top-1 right-1 rounded-full bg-red-500 p-1 text-white opacity-0 transition-opacity group-hover:opacity-100 hover:bg-red-600 cursor-pointer"
+                      >
+                        <X className="h-3 w-3" />
+                      </button>
+                      {idx === 0 && (
+                        <span className="absolute bottom-1 left-1 rounded bg-blue-600 px-1.5 py-0.5 text-[10px] font-medium text-white">Ana</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {productImages.length < 3 && (
+                <div
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex cursor-pointer flex-col items-center gap-2 rounded-lg border-2 border-dashed border-slate-300 p-6 transition-colors hover:border-blue-400 hover:bg-blue-50/50"
+                >
+                  {uploadingImages ? (
+                    <Spinner size="sm" />
+                  ) : (
+                    <>
+                      <Upload className="h-8 w-8 text-slate-400" />
+                      <span className="text-sm text-slate-500">Resim yüklemek için tıklayın</span>
+                      <span className="text-xs text-slate-400">PNG, JPEG veya WebP • Maks. 3MB</span>
+                    </>
+                  )}
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    multiple
+                    className="hidden"
+                    onChange={(e) => e.target.files && handleImageUpload(e.target.files)}
+                  />
+                </div>
+              )}
+            </div>
+          )}
+          {!editingId && (
+            <div className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-700">
+              <ImageIcon className="inline h-4 w-4 mr-1" />
+              Resim eklemek için önce ürünü kaydedin, ardından düzenle butonuna tıklayın.
+            </div>
+          )}
         </form>
       </Modal>
 
