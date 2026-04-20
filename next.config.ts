@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     root: path.resolve(process.cwd(), '..'),
   },
   serverExternalPackages: ['mongoose'],
+  experimental: {
+    workerThreads: false,
+    cpus: 1,
+  },
 };
 
 export default nextConfig;

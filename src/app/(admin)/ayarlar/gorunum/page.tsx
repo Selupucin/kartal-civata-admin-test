@@ -6,7 +6,7 @@ import { Button, Spinner } from '@/components/ui';
 import { Image as ImageIcon, Upload, Trash2, Globe } from 'lucide-react';
 import { toast } from 'sonner';
 
-const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+const SITE_URL = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3000';
 
 function siteAsset(url?: string) {
   if (!url) return '';

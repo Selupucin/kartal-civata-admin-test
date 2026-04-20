@@ -33,7 +33,7 @@ export const POST = apiHandler(
     const fileName = `favicon.${sanitizedExt}`;
     // Save to main site's public/uploads so the favicon is served from the main site
     const mainSiteRoot = path.resolve(process.cwd(), '..');
-    const uploadDir = path.join(mainSiteRoot, 'public', 'uploads');
+    const uploadDir = path.join(mainSiteRoot, 'site', 'public', 'uploads');
 
     await mkdir(uploadDir, { recursive: true });
     await writeFile(path.join(uploadDir, fileName), buffer);

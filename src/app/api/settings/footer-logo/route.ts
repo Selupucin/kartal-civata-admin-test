@@ -32,7 +32,7 @@ export const POST = apiHandler(
 
     const ext = file.name.split('.').pop() || 'png';
     const fileName = `footer-logo-${Date.now()}.${ext}`;
-    const uploadDir = path.join(process.cwd(), '..', 'public', 'uploads');
+    const uploadDir = path.join(process.cwd(), '..', 'site', 'public', 'uploads');
 
     await mkdir(uploadDir, { recursive: true });
     await writeFile(path.join(uploadDir, fileName), buffer);
